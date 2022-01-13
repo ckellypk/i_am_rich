@@ -1,42 +1,44 @@
 import 'package:flutter/material.dart';
 
 /*
-If you are doing this from android studio its really easy to follow the prompts to create a new flutter project
+The scaffolding widget is the primary container that will allow you to use other widgets 
+like columns, rows, buttons and bars. Used for showing drawers and bottomless sheets
 
-Either way I suggeust you download Android Studio just for the emulators. 
+In this case we want an app bar but the things we need to add to the app bar will make it suit our specific
+purpose. 
 
-After you downloald the device and images you can use extensinos in your favoirte IDE (I use VS code) to 
-work with
+You can change alot of stuff on the app bar, but we want to change the background.
+We need to change its properties.
+
+To change the properties of a widget just enter its name and then its value. Carzy right?
+
+https://api.flutter.dev/flutter/material/Scaffold-class.html
 
 
-You cancreate a flutter project from the commmand line by running 'flutter create' 
-
-In VS code on the command pallet (ctrl + shift + p) and type in Flutter New Project and you are up and running
-
-Below of your first flutter app. Notice there is a main mathod that runst the app by calling runApp
-This is the entry point for all of your flutter applications.
-
-Since we are using Material widgets we are building a material app. The home of the app will just have a text of
-Hello World. We will use the wigets directly instead of inheriting from the widgets which means hot reload 
-wont work so don't try to fix it.
-
-FIRST RULE OF FLUTTER: EVERYTHING IS A WIDGET!!!
-
-The MaterialApp Widget contains the application pace contents. It tells the app that this is the container
-for the pages contents.
-
-The center widget centeres everything inside of it. We give this a child element. That is a text 
-widget and you enter the text to be displayed on the screen.
-
-As long as there is a comma it will auto generate the comments that lets you know wat the end of the widget. 
-This is helpful for deeply nested and complicated UIs
 */
 void main() { 
   runApp(
-      const MaterialApp(
-        home: Center(
-          child: Text('Hello World'),
+      MaterialApp(
+        home: Scaffold(
+          backgroundColor: Colors.blueGrey[600],
+          appBar: AppBar(
+            title: 
+              const Center( 
+                child: Text(
+                'I am Rich', 
+                style:TextStyle(
+                  fontStyle: FontStyle.italic, fontFamily: 'Cardo'
+                ),
+                ),
+          ),
+          backgroundColor: Colors.blueGrey[900]
+          ),
+          body: const Center( 
+            child: Image(
+            image: NetworkImage('https://images.unsplash.com/photo-1495344517868-8ebaf0a2044a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=953&q=80')
+          ),
+          ),
         ),
-      ),
-    );
+    )
+  );
 }
